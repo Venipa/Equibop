@@ -35,10 +35,10 @@ export async function githubGet(endpoint: string) {
 
     return fetchie(API_BASE + endpoint, opts, { retryOnNetworkError: true });
 }
-
+const REMOTE = process.env.VENCORD_REMOTE || "Equicord/Equicord";
 export async function downloadVencordAsar() {
     await downloadFile(
-        "https://github.com/Equicord/Equicord/releases/latest/download/equibop.asar",
+        `https://github.com/${REMOTE}/releases/latest/download/equibop.asar`,
         VENCORD_DIR,
         {},
         { retryOnNetworkError: true }
